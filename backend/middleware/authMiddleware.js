@@ -39,19 +39,23 @@
 
 // module.exports = { protect }
 const jwt = require("jsonwebtoken");
+const userModel = require("../models/userModel");
 
 const protect = async (req, res, next) => {
     let token;
 
-    // ✅ हेडर में Authorization चेक करें
+    //  हेडर में Authorization चेक करें
     if (req.headers.authorization && req.headers.authorization.startsWith("Bearer")) {
         try {
-            token = req.headers.authorization.split(" ")[1]; // ✅ "Bearer token" से सिर्फ टोकन लें
+            token = req.headers.authorization.split(" ")[1]; //  "Bearer token" से सिर्फ टोकन लें
 
             console.log("received token", token);
             const decoded = jwt.verify(token, process.env.JWT_SECRET);
-            req.user = decoded; // ✅ यूजर डेटा जोड़ें
-            req.user = await User.findById(decoded.id).select("-password"); // ✅ यूजर डेटा जोड़ें
+            console.log(decoded, "data in middleware");
+            req.user = decoded; //  यूजर डेटा जोड़ें
+
+            
+            req.user = await userModel.findById(decoded.userId).select("-password"); //  यूजर डेटा जोड़ें
             if (!req.user) {
               return res.status(401).json({ message: "User not found" });
           }

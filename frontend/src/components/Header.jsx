@@ -6,17 +6,19 @@ import { logout } from '../features/auth/authSlice'
 function Header() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
+  
+  // Accessing user from Redux state
   const { user } = useSelector((state) => state.auth)
   
-  // console.log(user?.isAdmin , "User data in headers"); // Optional chaining to safely access user.isAdmin
-
+  // Function for logout
   const onLogout = () => {
-    dispatch(logout())
-    navigate('/')
+    dispatch(logout())  // Log the user out by dispatching the logout action
+    navigate('/')  // Redirect to home page after logout
   }
 
-  const handleclick = () =>{
-    navigate("/dashboard")
+  // Function to navigate to dashboard
+  const handleClick = () => {
+    navigate('/dashboard')
   }
 
   return (
@@ -34,7 +36,7 @@ function Header() {
             </li>
             {user.isAdmin && (
               <li>
-                <button className='btn' onClick={handleclick}> 
+                <button className='btn' onClick={handleClick}> 
                   Dashboard
                 </button>
               </li>

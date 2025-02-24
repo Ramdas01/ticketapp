@@ -173,3 +173,6 @@ npm install
 ```bash
 npm run dev
 ```
+
+// "start": "node backend/server.js",
+    // "server": "nodemon backend/server.js",

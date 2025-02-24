@@ -10,18 +10,18 @@ const Dashboard = () => {
     resolved: 0
   });
 
-  useEffect(() => {
-    axios.get("http://localhost:5000/api/tickets").then((response) => {
-      if (response.data.success) {
-        setTickets(response.data.data.tickets);
-        setTicketSummary({
-          total: response.data.data.total,
-          open: response.data.data.open,
-          resolved: response.data.data.closed
-        });
-      }
-    });
-  }, []);
+  // useEffect(() => {
+  //   axios.get("http://localhost:5000/api/tickets").then((response) => {
+  //     if (response.data.success) {
+  //       setTickets(response.data.data.tickets);
+  //       setTicketSummary({
+  //         total: response.data.data.total,
+  //         open: response.data.data.open,
+  //         resolved: response.data.data.closed
+  //       });
+  //     }
+  //   });
+  // }, []);
 
   return (
     <div className="container">     

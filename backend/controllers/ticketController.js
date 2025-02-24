@@ -1,6 +1,7 @@
 const asyncHandler = require('express-async-handler')
 
 const Ticket = require('../models/ticketModel')
+const { message } = require('statuses')
 
 // NOTE: no need to get the user, we already have them on req object from
 // protect middleware. The protect middleware already checks for valid user.
@@ -10,8 +11,7 @@ const Ticket = require('../models/ticketModel')
 // @access  Private
 const getTickets = asyncHandler(async (req, res) => {
   const tickets = await Ticket.find({ user: req.user.id })
-
-  res.status(200).json(tickets)
+  return res.status(200).json({tickets,message:"datass"})
 })
 
 // @desc    Get user ticket
