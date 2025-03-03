@@ -31,19 +31,19 @@ const Dashboard = () => {
         <div className="card" style={{ width: "18rem", margin: "10px" }}>
           <div className="card-body">
             <div className="text-middle card-title h5">Total Tickets</div>
-            <h1 className="text-middle">{ticketSummary.total}</h1>
+            <h3 className="text-middle">{ticketSummary.total}</h3>
           </div>
         </div>
         <div className="card" style={{ width: "18rem", margin: "10px" }}>
           <div className="card-body">
             <div className="text-middle card-title h5">Open Tickets</div>
-            <h1 className="text-middle">{ticketSummary.open}</h1>
+            <h3 className="text-middle">{ticketSummary.open}</h3>
           </div>
         </div>
         <div className="card" style={{ width: "18rem", margin: "10px" }}>
           <div className="card-body">
             <div className="text-middle card-title h5">Resolved Tickets</div>
-            <h1 className="text-middle">{ticketSummary.resolved}</h1>
+            <h3 className="text-middle">{ticketSummary.resolved}</h3>
           </div>
         </div>
       </div>
@@ -51,7 +51,7 @@ const Dashboard = () => {
 
       {/* Ticket Table */}
       <div className="table-container">
-        <h1 className="heading">All Tickets</h1>
+        <h3 className="heading">All Tickets</h3>
         <div className="react-bootstrap-table">
           <table className="table table-striped table-hover table-bordered">
             <thead>

@@ -66,10 +66,10 @@ function Register() {
   return (
     <>
       <section className='heading'>
-        <h1>
+        <h3>
           <FaUser /> Register
-        </h1>
-        <p>Please create an account</p>
+        </h3>
+        <p style={{fontSize:"14px"}}>Please create an account</p>
       </section>
 
       <section className='form'>

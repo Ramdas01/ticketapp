@@ -22,11 +22,11 @@ function Tickets() {
   if (!tickets) {
     return <Spinner />
   }
-
+console.log("tickets",tickets)
   return (
     <>
       <BackButton />
-      <h1>Tickets</h1>
+      <h3>Tickets</h3>
       <div className='tickets'>
         <div className='ticket-headings'>
           <div>Date</div>

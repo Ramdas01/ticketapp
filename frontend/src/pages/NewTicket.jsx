@@ -12,6 +12,7 @@ function NewTicket() {
   const [email] = useState(user.email)
   const [product, setProduct] = useState('iPhone')
   const [description, setDescription] = useState('')
+  const [engineer, setEngineer] = useState('');
 
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -32,7 +33,7 @@ function NewTicket() {
     <>
       <BackButton />
       <section className='heading'>
-        <h1>Create New Ticket</h1>
+        <h4>Create New Ticket</h4>
         <p>Please fill out the form below</p>
       </section>
 
@@ -46,35 +47,53 @@ function NewTicket() {
           <input type='text' className='form-control' value={email} disabled />
         </div>
         <form onSubmit={onSubmit}>
-          <div className='form-group'>
-            <label htmlFor='product'>Product</label>
+          <div className="form-group">
+            <label htmlFor="product">Product</label>
             <select
-              name='product'
-              id='product'
+              name="product"
+              id="product"
               value={product}
               onChange={(e) => setProduct(e.target.value)}
             >
-              <option value='iPhone'>iPhone</option>
-              <option value='Macbook Pro'>Macbook Pro</option>
-              <option value='iMac'>iMac</option>
-              <option value='iPad'>iPad</option>
+              <option value="iPhone">iPhone</option>
+              <option value="Macbook Pro">Macbook Pro</option>
+              <option value="iMac">iMac</option>
+              <option value="iPad">iPad</option>
             </select>
           </div>
-          <div className='form-group'>
-            <label htmlFor='description'>Description of the issue</label>
+
+          <div className="form-group">
+            <label htmlFor="description">Description of the issue</label>
             <textarea
-              name='description'
-              id='description'
-              className='form-control'
-              placeholder='Description'
+              name="description"
+              id="description"
+              className="form-control"
+              placeholder="Description"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
             ></textarea>
           </div>
-          <div className='form-group'>
-            <button className='btn btn-block'>Submit</button>
+
+          {/* Engineer Assignment Field */}
+          <div className="form-group">
+            <label htmlFor="engineer">Assign to Engineer</label>
+            <select
+              name="engineer"
+              id="engineer"
+              value={engineer}
+              onChange={(e) => setEngineer(e.target.value)}
+            >
+              <option value="">Select Engineer</option>
+              <option value="Adnan Sheikh">Adnan Sheikh</option>
+              <option value="Shreyas Tare">Shreyas Tare</option>
+            </select>
+          </div>
+
+          <div className="form-group">
+            <button className="btn btn-block">Submit</button>
           </div>
         </form>
+
       </section>
     </>
   )
